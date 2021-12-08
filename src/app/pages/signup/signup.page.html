@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar style="color: cadetblue;">
+    <ion-title>Signup page</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-img style="max-width: 300px;margin-right:  auto;margin-left: auto;" src="https://cdn.picpng.com/robot/robot-postit-note-to-do-55543.png"></ion-img>
+
+  <div class="form" style="background-color: cadetblue; padding: 20px;border-radius: 25px;  box-shadow: 5px 10px #888888; " >
+
+    <ion-item>
+      <ion-label position="stacked">Name</ion-label>
+      <ion-input type="email" [(ngModel)]='name'></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-label position="stacked">Email</ion-label>
+      <ion-input type="email" [(ngModel)]='email'></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <ion-label position="stacked">Password</ion-label>
+      <ion-input type="password" [(ngModel)]='password'></ion-input>
+    </ion-item>
+    <ion-button (click)='signup()' expand='block' style="margin-top: 20px;">Signup</ion-button>
+    <p>already have an account: <a routerLink="/login">signin</a> !</p>
+  </div>
+</ion-content>
