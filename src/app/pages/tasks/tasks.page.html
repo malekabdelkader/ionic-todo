@@ -15,8 +15,9 @@
   <div *ngFor="let task of taskCollection">
     <ion-card *ngIf="!task.state" icon-left>
       <!-- we're filtering the users in the front 
-      we know it's a bad practice but we haven't found a query solution in DB-->
-      <ion-card-content *ngIf="task.user==CurrentUser" style="float:left">
+      we know it's a bad practice but we haven't found a query solution in DB 
+      *ngIf="task.user==CurrentUser" -->
+      <ion-card-content  style="float:left">
 
         <ion-item>
 
