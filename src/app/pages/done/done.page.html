@@ -7,8 +7,7 @@
 <ion-content>
   <div *ngFor="let task of taskCollection">
     <ion-card *ngIf="task.state" icon-left>
-      <ion-card-content style="float:left">
-
+      <ion-card-content *ngIf="task.user==CurrentUser" style="float:left">
         <ion-item>
 
           <ion-checkbox checked="task.state" color="success">
