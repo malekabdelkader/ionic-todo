@@ -24,6 +24,8 @@ export class LoginPage implements OnInit {
   login() {
     this.fireService.login({ email: this.email, password: this.password }).then(res => {
       if (res.user.uid) {
+        //set a session storage variable to store and control user session (
+       // it should be token ) please forgive us about that ;)
         sessionStorage.setItem('auth',res.user.uid)
         this.router.navigateByUrl('/tabs/to-do-list');
       }

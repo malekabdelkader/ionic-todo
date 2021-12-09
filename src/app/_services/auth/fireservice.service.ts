@@ -8,7 +8,6 @@ import {AngularFirestore} from'@angular/fire//compat/firestore'
 export class FireserviceService {
 
   constructor(public firestore:AngularFirestore,public auth:AngularFireAuth) { }
-
     login(data:loginDetails){
       return this.auth.signInWithEmailAndPassword(data.email, data.password);
     }

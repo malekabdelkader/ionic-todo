@@ -11,22 +11,24 @@ import { AddTaskPage } from '../tasks/add-task/add-task.page';
   styleUrls: ['./done.page.scss'],
 })
 export class DonePage implements OnInit {
-
+  CurrentUser:string
   taskCollection: any;
   constructor(private apiService: TodoService,
     private modalController: ModalController,
   ) { }
 
   ngOnInit() {
-    
+    this.CurrentUser= sessionStorage.getItem('auth')
     this.apiService.listTask().snapshotChanges().pipe(
       map(changes =>
         changes.map(c =>
           ({ key: c.payload.key, ...c.payload.val() as {} })
         )
       )
-    ).subscribe(task => {
-      this.taskCollection = task;
+    ).subscribe(tasks => {
+      this.taskCollection = tasks;
+      console.log(tasks);
+      
     }, (error) => {
       console.log(error);
     });

@@ -17,6 +17,8 @@ private user:string;
   ) { }
 
   ngOnInit() {
+    //this is replicated because we already know that /tabs is secure and user logged in
+    //but we just did that to make sure data is sent correctly to db
     if(sessionStorage.getItem('auth')){
       this.user=sessionStorage.getItem('auth')
     }else{
@@ -36,6 +38,7 @@ private user:string;
 
 
     var date = dd + '/' + mm + '/' + yyyy;
+    //we store the task with the user id so we can filter it later by it
     this.apiService.createTask(form.value.name, date,this.user).then(res => {
       console.log(res)
     })

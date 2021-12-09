@@ -13,11 +13,12 @@ import { map } from 'rxjs/operators';
 export class TasksPage implements OnInit {
   date: Date = new Date()
   taskCollection: any;
-
+  CurrentUser:string
   constructor(private modalController: ModalController, private apiService: TodoService
   ) { }
 
   ngOnInit() {
+    this.CurrentUser= sessionStorage.getItem('auth')
     this.getAllTask()
   }
 
@@ -30,6 +31,10 @@ export class TasksPage implements OnInit {
       )
     ).subscribe(task => {
       this.taskCollection = task;
+      console.log('to do',task);
+      console.log(this.CurrentUser);
+      
+      
     }, (error) => {
       console.log(error);
     });
@@ -41,7 +46,6 @@ export class TasksPage implements OnInit {
     })
       .catch(error => console.log(error));
   }
-
   async presentModal() {
     const modal = await this.modalController.create({
       component: AddTaskPage,
